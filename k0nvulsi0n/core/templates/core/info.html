@@ -1,0 +1,59 @@
+{% load static %}
+
+<div class="min-h-screen flex flex-col">
+    <!-- Info and Photo Section centered vertically -->
+    <div class="flex-grow flex items-center justify-center">
+        <div class="flex flex-col items-center">
+            <!-- Adjusted Flex Container with Controlled Spacing -->
+            <div class="flex max-[1279px]:flex-col max-[1279px]:gap-10 justify-evenly items-center p-8 w-screen">
+                <!-- Left Section: Personal Info -->
+                <div>
+                    <!-- Nickname -->
+                    <h1 class="text-5xl font-bold rainbow-text-hover cursor-default">mitruho</h1>
+
+                    <!-- Personal Info -->
+                    <ul class="mt-4 space-y-2">
+                        <li class="text-lg font-medium">
+                            <span class="text-gray-500">Имя:</span>
+                            <span class="text-[#ff3385] hover:text-[#e6005c] cursor-default transition-colors duration-200 ease-in-out">Артём Авдейко</span> 👨
+                        </li>
+                        <li class="text-lg font-medium">
+                            <span class="text-gray-500">Возраст:</span>
+                            <span class="text-[#80aaff] hover:text-[#0099cc] cursor-default transition-colors duration-200 ease-in-out">20</span> ⏳
+                        </li>
+                        <li class="text-lg font-medium">
+                            <span class="text-gray-500">Email:</span>
+                            <a class="text-[#00ffbf] hover:text-[#00cc99] transition-colors duration-200 ease-in-out" href="mailto:artem.avdeiko@gmail.com">artem.avdeiko@gmail.com</a> 📧
+                        </li>
+                    </ul>
+
+                    <!-- Social Links -->
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://t.me/a1999999997" target="_blank">
+                            <img src="{% static 'core/images/telegram-icon.svg' %}" alt="Telegram" class="h-8 w-8">
+                        </a>
+                        <a href="https://wa.me/393513558255" target="_blank">
+                            <img src="{% static 'core/images/whatsapp-icon.svg' %}" alt="WhatsApp" class="h-8 w-8">
+                        </a>
+                        <a href="https://github.com/mitruho" target="_blank">
+                            <img src="{% static 'core/images/github-icon.svg' %}" alt="GitHub" class="h-8 w-8">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Section: Profile Image -->
+                <div class="">
+                    <img src="{% static 'core/images/me.jpg' %}" alt="Profile Image" class="h-64 w-64 rounded-full object-cover border-2 border-[#cce1ff] shadow-bottom-right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button centered horizontally at the bottom -->
+    <div class="flex justify-center mb-8">
+        <button
+        class="px-6 py-3 text-gray-700 bg-[#cce1ff] font-extrabold rounded-full shadow-[6px_6px_12px_rgba(163,177,198,0.6),-6px_-6px_12px_rgba(255,255,255,0.5),inset_2px_2px_6px_rgba(163,177,198,0.6),inset_-2px_-2px_6px_rgba(255,255,255,0.5)] hover:shadow-[inset_6px_6px_12px_rgba(163,177,198,0.6),inset_-6px_-6px_12px_rgba(255,255,255,0.5)]"
+        _="on click go to the top of #stack smoothly">
+            Узнай больше
+        </button>
+    </div>
+</div>

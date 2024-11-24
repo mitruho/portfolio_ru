@@ -1,0 +1,68 @@
+{% load widget_tweaks %}
+<div class="flex flex-col items-center justify-evenly h-[95%] text-center">
+<h3 class="text-bold min-[1000px]:text-5xl max-[999px]:text-3xl"
+_="on intersection(intersecting) having threshold 0.1
+    if intersecting transition opacity to 1over 300ms" style="opacity:0">Оставить заявку</h3>
+<form id="contactForm" method="post" action="{% url 'index' %}" class="flex flex-col items-center"
+_="on intersection(intersecting) having threshold 0.1
+    if intersecting transition opacity to 1over 300ms" style="opacity:0">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <label for="contact_email">Email:</label>
+    {{ form.contact_email|add_class:"rounded-3xl border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" }}
+
+    <label for="contact_phone">Телефон (опционально):</label>
+    {{ form.contact_phone|add_class:"rounded-3xl border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" }}
+
+    <label for="project_title">Название проекта:</label>
+    {{ form.project_title|add_class:"rounded-3xl border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 w-4/5" }}
+
+    <label for="project_description">Описание проекта:</label>
+    {{ form.project_description|add_class:"rounded-3xl border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 w-5/6" }}
+
+    <button type="submit" class="px-6 py-3 mt-5 text-gray-700 bg-[#cce1ff] font-extrabold rounded-full shadow-[6px_6px_12px_rgba(163,177,198,0.6),-6px_-6px_12px_rgba(255,255,255,0.5),inset_2px_2px_6px_rgba(163,177,198,0.6),inset_-2px_-2px_6px_rgba(255,255,255,0.5)] hover:shadow-[inset_6px_6px_12px_rgba(163,177,198,0.6),inset_-6px_-6px_12px_rgba(255,255,255,0.5)] transition-all duration-300">Оставить заявку</button>
+</form>
+
+<!-- Container for the success animation -->
+<div id="successAnimation" style="display: none;">
+    <div class="success-animation">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+    </div>
+</div>
+</div>
+<footer class="bg-[#cce1ff] w-full h-[5%] flex items-center justify-center shadow-[0px_-5px_15px_7px_#cce1ff] max-[450px]:mt-20">
+<p class="font-light text-xl">Создано Mitruho в 2024</p>
+</footer>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const url = form.action;
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Hide the form
+                form.style.display = 'none';
+
+                // Show the animation
+                const animationContainer = document.getElementById('successAnimation');
+                animationContainer.style.display = 'block';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>

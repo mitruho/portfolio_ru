@@ -1,0 +1,57 @@
+{% load static %}
+
+<h1 class="text-bold min-[1280px]:text-8xl max-[1279px]:text-5xl text-center min-[1000px]:mt-40">Мои услуги</h1>
+<div class="wrapper"
+_="on intersection(intersecting) having threshold 0.1
+    if intersecting transition opacity to 1over 300ms" style="opacity:0">
+    <div class="cols">
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                <div class="container">
+                    <div class="front" style="background-image: url(/static/core/images/design.jpg)">
+                          <div class="inner">
+                              <p>Веб-дизайн</p>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                            <p>Я могу создать дизайн для вашего сайта с учётом ваших предпочтений</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(/static/core/images/development.jpeg)">
+                          <div class="inner">
+                              <p>Веб-разработка</p>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>Я могу разработать вам сайт, оптимизированный под различные устройства</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col" ontouchstart="this.classList.toggle('hover');">
+                  <div class="container">
+                      <div class="front" style="background-image: url(/static/core/images/deployment.jpg)">
+                          <div class="inner">
+                              <p>Развёртывание сайта</p>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p>Вы также можете рассчитовать на меня в развертывании сайта на хостинге</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+<div class="flex justify-center mb-8">
+    <button class="px-6 py-3 text-gray-700 bg-[#cce1ff] font-extrabold rounded-full shadow-[6px_6px_12px_rgba(163,177,198,0.6),-6px_-6px_12px_rgba(255,255,255,0.5),inset_2px_2px_6px_rgba(163,177,198,0.6),inset_-2px_-2px_6px_rgba(255,255,255,0.5)] hover:shadow-[inset_6px_6px_12px_rgba(163,177,198,0.6),inset_-6px_-6px_12px_rgba(255,255,255,0.5)] transition-all duration-300"
+    _="on click go to the top of #works smoothly">
+        К портфолио
+    </button>
+</div>

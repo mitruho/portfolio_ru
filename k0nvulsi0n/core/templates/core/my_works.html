@@ -1,0 +1,22 @@
+{% if projects|length > 1 %}
+<h1 class="text-bold min-[1000px]:text-5xl max-[999px]:text-3xl mt-20 max-[400px]:mt-64 max-[450px]:mt-56 text-center"
+_="on intersection(intersecting) having threshold 0.1
+    if intersecting transition opacity to 1over 300ms" style="opacity:0">Вот мои работы</h1>
+{% else %}
+<h1 class="text-bold min-[1000px]:text-5xl max-[999px]:text-3xl mt-20 max-[400px]:mt-64 max-[450px]:mt-56 text-center"
+_="on intersection(intersecting) having threshold 0.1
+    if intersecting transition opacity to 1over 300ms" style="opacity:0">Работа месяца</h1>
+{% endif %}
+
+{% for project in projects %}
+    <a href="{{ project.website }}" class="my-20 min-[601px]:grid min-[601px]:grid-cols-2 min-[600px]:max-xl:gap-x-1 min-[1800px]:gap-x-60 min-[601px]:gap-y-20 max-[600px]:flex max-[600px]:flex-col max-[600px]:gap-20 max-[600px]:items-center project-card min-[1280px]:w-2/5 hover:text-[#475063]"
+    _="on intersection(intersecting) having threshold 0.1
+        if intersecting transition opacity to 1over 300ms" style="opacity:0">
+        <div class="row-span-2 flex items-center justify-center">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="h-auto min-[601px]:w-2/5 max-[600px]:w-screen border-8 border-white rounded-3xl static-image">
+            <img src="{{ project.gif.url }}" alt="{{ project.title }}" class="h-auto min-[601px]:w-2/5 max-[600px]:w-screen border-8 border-white rounded-3xl gif-image">
+        </div>
+        <h2 class="text-bold min-[1000px]:text-3xl max-[999px]:text-2xl uppercase max-[399px]:mt-[300px] max-[550px]:mt-[450px] max-[600px]:mt-[550px]">{{ project.title }}</h2>
+        <p class= "font-medium min-[1000px]:text-lg max-[600px]:text-center py-10">{{ project.body }}</p>
+    </a>
+{% endfor %}

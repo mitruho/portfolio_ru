@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% block title %}mitruho{% endblock %}
+{% block content %}
+<div class="h-screen">
+    {% include "core/info.html" %}
+</div>
+<div class="h-screen min-h-screen flex flex-col items-center justify-between max-[1279px]:mt-40 mt-20" id="stack">
+    {% include "core/techstack.html" %}
+</div>
+<div class="h-screen min-h-screen flex flex-col items-center justify-evenly mt-20 max-[500px]:mt-64 max-[400px]:mt-64" id="works">
+    {% include "core/my_works.html" %}
+</div>
+<div class="h-screen min-h-screen flex flex-col items-center justify-between mt-20 max-[500px]:mt-64 max-[400px]:mt-72" id="contact">
+    {% include "core/footer.html" %}
+</div>
+{% endblock %}
